@@ -94,20 +94,77 @@
 </ul>
 <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
 <li>类与对象的关系</li>
-<li>定义类 对象初始化<br>(<code>`</code>)<br>// 比如这个<br>import java.util.Scanner;</li>
+<li><p>定义类 对象初始化</p>
+<pre><code>// 比如这个
+import java.util.Scanner;
+
+public class Fraction {
+    int numerator; // 分子
+    int denominator; // 分母
+
+Fraction(int numerator, int denominator)
+{
+    int gcd = 1;
+    // 找到最大公约数(化简分数)
+    for (int i = 2; i &lt;= numerator &amp;&amp; i &lt;= denominator; i++) {
+    if (numerator % i == 0 &amp;&amp; denominator % i == 0) {
+    gcd = i;
+        }
+    }
+this.numerator = numerator / gcd;
+this.denominator = denominator / gcd;
+}
+
+double toDouble()
+{
+return (double)numerator/denominator;
+}
+
+Fraction plus(Fraction in)
+{
+int denominator = this.denominator * in.denominator;
+int numerator = this.numerator * in.denominator + in.numerator * this.denominator;
+Fraction fraction = new Fraction(numerator, denominator);
+return fraction;
+}
+
+Fraction multiply(Fraction in)
+{
+int denominator = this.denominator * in.denominator;
+int numerator = this.numerator * in.numerator;
+Fraction fraction = new Fraction(numerator, denominator);
+return fraction;
+}
+
+void print()
+{
+if (numerator == denominator) {
+System.out.println(&quot;1&quot;);
+} else {
+System.out.println(numerator+&quot;/&quot;+denominator);
+    }
+}
+
+public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    Fraction fraction1 = new Fraction(in.nextInt(), in.nextInt());
+    Fraction fraction2 = new Fraction(in.nextInt(),in.nextInt());
+    fraction1.print();
+    fraction2.print();
+    fraction1.plus(fraction2).print();
+    fraction1.multiply(fraction2).plus(new Fraction(5,6)).print();
+    fraction1.print();
+    fraction2.print();
+    in.close();
+    }
+}
+</code></pre><h2 id="Happy-new-year"><a href="#Happy-new-year" class="headerlink" title="Happy new year!"></a><strong>Happy new year!</strong></h2></li>
 </ul>
-<p>public class Fraction {<br>int numerator; // 分子<br>int denominator; // 分母</p>
-<p>Fraction(int numerator, int denominator)<br>{<br>int gcd = 1;<br>// 找到最大公约数(化简分数)<br>for (int i = 2; i &lt;= numerator &amp;&amp; i &lt;= denominator; i++) {<br>if (numerator % i == 0 &amp;&amp; denominator % i == 0) {<br>gcd = i;<br>}<br>}<br>this.numerator = numerator / gcd;<br>this.denominator = denominator / gcd;<br>}</p>
-<p>double toDouble()<br>{<br>return (double)numerator/denominator;<br>}</p>
-<p>Fraction plus(Fraction in)<br>{<br>int denominator = this.denominator <em> in.denominator;<br>int numerator = this.numerator </em> in.denominator + in.numerator * this.denominator;<br>Fraction fraction = new Fraction(numerator, denominator);<br>return fraction;<br>}</p>
-<p>Fraction multiply(Fraction in)<br>{<br>int denominator = this.denominator <em> in.denominator;<br>int numerator = this.numerator </em> in.numerator;<br>Fraction fraction = new Fraction(numerator, denominator);<br>return fraction;<br>}</p>
-<p>void print()<br>{<br>if (numerator == denominator) {<br>System.out.println(“1”);<br>} else {<br>System.out.println(numerator+”/“+denominator);<br>}<br>}</p>
-<p>public static void main(String[] args) {<br>Scanner in = new Scanner(System.in);<br>Fraction fraction1 = new Fraction(in.nextInt(), in.nextInt());<br>Fraction fraction2 = new Fraction(in.nextInt(),in.nextInt());<br>fraction1.print();<br>fraction2.print();<br>fraction1.plus(fraction2).print();<br>fraction1.multiply(fraction2).plus(new Fraction(5,6)).print();<br>fraction1.print();<br>fraction2.print();<br>in.close();<br>}<br>}<br>(<code>`</code>)</p>
-<h2 id="Happy-new-year"><a href="#Happy-new-year" class="headerlink" title="Happy new year!"></a><strong>Happy new year!</strong></h2>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/03/Mr-Zhang-so-niubi/" data-id="cjrp1qidp0001lliehmelsda8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/03/Mr-Zhang-so-niubi/" data-id="cjrp21uhi0000nnierswlkuie" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/25/hello-world/" data-id="cjrp1qidi0000lliezg21usm7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/25/hello-world/" data-id="cjrp21uho0001nnier7imk8az" class="article-share-link">Share</a>
       
       
     </footer>
