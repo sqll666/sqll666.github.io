@@ -62,6 +62,139 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-线性结构" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/17/线性结构/" class="article-date">
+  <time datetime="2019-02-17T07:33:28.000Z" itemprop="datePublished">2019-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/17/线性结构/">线性结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="线性表的链式储存实现"><a href="#线性表的链式储存实现" class="headerlink" title="线性表的链式储存实现"></a>线性表的链式储存实现</h2><ul>
+<li><p>结构实现</p>
+<pre><code>typedef struct LNode* List;
+struct LNode {
+ElementType Dota;
+List Next;
+};
+</code></pre></li>
+<li><p>主要操作</p>
+<ul>
+<li>求表长</li>
+<li>按位查找和按值查找</li>
+<li>插入</li>
+<li>删除</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="广义表"><a href="#广义表" class="headerlink" title="广义表"></a>广义表</h2><p>广义表中元素可以是单元素也可以是另一个广义表</p>
+<ul>
+<li><p>结构实现</p>
+<pre><code>typedef struct GNode* GList;
+
+struct GNode {
+int Tag; /*标志域:0表示结点是单元素,1表示结点是广义表*/
+union { /*子表指针域SubList与单元素数据域Dota复用,即共用储存空间*/
+ElementType Dota;
+GList SubList;
+} URegion;
+GList Next; /*指向后继结点*/
+};
+</code></pre></li>
+</ul>
+<hr>
+<h2 id="多重链表"><a href="#多重链表" class="headerlink" title="多重链表"></a>多重链表</h2><ul>
+<li><p>十字链表<br>表示稀疏矩阵</p>
+<ul>
+<li><p>结构实现</p>
+<pre><code>typedef struct ONode *OList;
+
+struct Term {
+int Tag; /*标志域:0表示结点是头结点,1表示结点是普通结点*/
+int Row; /*头结点表示总行数,普通结点表示当前行数*/
+int Col; /*同上*/
+union {
+ElementType Value;
+int numbers;
+} URegion;
+};
+
+struct ONode {
+int Tag; /*标志域:0表示结点是Head,1表示结点是Term*/
+union {
+struct Term term;
+OList Next; /*指向后继结点*/
+} URegion;
+OList Down, Right;
+};
+</code></pre></li>
+</ul>
+</li>
+<li><p>双向链表</p>
+<ul>
+<li><p>结构实现</p>
+<pre><code>typedef struct DuLNode* DuList;
+ struct DuLNode {
+ ElementType Data;
+ DuList Prior, Next;
+ };
+</code></pre></li>
+<li>基本操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><ul>
+<li><p>栈的顺序储存实现</p>
+<pre><code>struct SNode {
+ElementType Dota[MaxSize];
+int Top;
+};
+</code></pre></li>
+<li><p>堆栈的链式存储实现</p>
+<pre><code>struct SNode2 { 
+ElementType Dota;
+struct SNode2 *Next;
+};
+</code></pre></li>
+<li><p>用1个数组表示两个堆栈</p>
+<pre><code>struct DStack { 
+ElementType Dota[MaxSize];
+int Top1; /*堆栈1的栈顶指针*/
+int Top2; /*堆栈2的栈顶指针*/
+};
+</code></pre></li>
+<li><p>应用实例 中缀表达式转后缀表达式</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/17/线性结构/" data-id="cjs8m7gh90002jkieveei5q9f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Class" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/10/Class/" class="article-date">
@@ -122,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/Class/" data-id="cjry9t9120000ue05kafx4f7s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/Class/" data-id="cjs8m7ghc0003jkiekactpkns" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +367,7 @@ public static void main(String[] args) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/03/Mr-Zhang-so-niubi/" data-id="cjry9t9190001ue05eyijtdb3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/03/Mr-Zhang-so-niubi/" data-id="cjs8m7gh60001jkie664xguuh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -279,7 +412,7 @@ public static void main(String[] args) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/25/hello-world/" data-id="cjry9t91c0002ue05swkkrbw6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/25/hello-world/" data-id="cjs8m7ggg0000jkie6sfed94t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,6 +451,10 @@ public static void main(String[] args) {
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/02/17/线性结构/">线性结构</a>
+          </li>
         
           <li>
             <a href="/2019/02/10/Class/">Class</a>
